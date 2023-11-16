@@ -69,6 +69,7 @@ public class Kodu5 {
     public static KOTipp tasakaalustus(KOTipp juur, String pool){
         int vahe;
         kuvaKahendpuu(juur);
+        //s
         if (juur.v == null){vahe = 0 - puuPikkus(juur.p,0);
             System.out.println("a");}
         else if ( juur.p == null){ vahe = puuPikkus(juur.v,0)+1;
