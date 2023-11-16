@@ -10,40 +10,26 @@ public class Kodu5 {
 
 
     public static void main(String[] args) {
-            KOTipp juur = AVLPuu(1);
+            KOTipp juur = AVLPuu(2);
 
              märgendaPuu(juur);
              int tippe = tippe(juur);
-       int[] arvud =  new int[]{1,3};
-      // for (int i=0;i<tippe ;i++) arvud[i] = i;
+       int[] arvud =  new int[tippe];
+        for (int i=0;i<tippe ;i++) arvud[i] = i;
       täidaKOP(juur,0,arvud);
 
 //        KOTipp() vähim = leiaVähim(juur);
 //        KOTipp otsitav = otsiKirjet(juur, 5);
 
         kuvaKahendpuu(juur);
-        lisaKirje(juur,3);
-        lisaKirje(juur,2);
+
+        lisaKirje(juur,15);
+        lisaKirje(juur,16);
         //vasakPööre(juur);
 
         //paremVasakPööre(juur);
         kuvaKahendpuu(juur);
-        //paremPööre(juur);
-       // kuvaKahendpuu(juur);
-        //lisaKirje(juur,2);
-       // vasakPööre(juur);
-        //paremVasakPööre(juur);
 
-
-        //kuvaKahendpuu(juur);
-        //System.out.println("pikkus: "+ puuPikkus(juur,0));
-        //kuvaKahendpuu(lisaKirje(juur, 15));
-
-        //lisaKirje(juur,5);
-        //lisaKirje(juur,6);
-        //kuvaKahendpuu(lisaKirje(juur,7));
-
-//        System.out.println("Hello world!");
     }
    public static KOTipp lisaKirje(KOTipp juur, int väärtus) {
 
@@ -53,45 +39,23 @@ public class Kodu5 {
         int vahe = puuPikkus(juur.v,0)- puuPikkus(juur.p,0);
         if (vahe < 0) vahe--;
         if (vahe > 0) vahe++;
-       System.out.println("vahe! " + vahe );
 
 
-       //while ( puuPikkus(juur.v,0)- puuPikkus(juur.p,0)-1 == -2 || puuPikkus(juur.v,0)- puuPikkus(juur.p,0) +1 == 2){
-            if (vahe == -2) tasakaalustus(juur.p, "p");
-            if (vahe == 2) tasakaalustus(juur.v,"v");
-    //}
+
        System.out.println("pikkusP: "+(puuPikkus(juur.p,0)));
        System.out.println("pikkusv: "+(puuPikkus(juur.v,0)));
         return juur;
 
     }
-
-    public static KOTipp tasakaalustus(KOTipp juur, String pool){
+    public static int vahe(KOTipp juur){
         int vahe;
-        kuvaKahendpuu(juur);
-        //s
-        if (juur.v == null){vahe = 0 - puuPikkus(juur.p,0);
+        if (juur.v == null){vahe = -(puuPikkus(juur.v, 0))-1;
             System.out.println("a");}
         else if ( juur.p == null){ vahe = puuPikkus(juur.v,0)+1;
             System.out.println("b");}
         else{vahe = puuPikkus(juur.p,0)- puuPikkus(juur.v,0);}
-
-
-        System.out.println("tasakaalustus vahe: " + vahe);
-
-        if (pool.equals("v")){
-            System.out.println("VVVVVV");
-            if (vahe == 0 || vahe == 1) paremPööre(juur);
-            else paremVasakPööre(juur);}
-        else{
-            System.out.println("ppp");
-            if (vahe == 0 || vahe == -1) {
-                System.out.println("P + Parem");
-                vasakPööre(juur);
-                }
-            else vasakParemPööre(juur);}
-        //kuvaKahendpuu(juur);
-        return juur;
+        System.out.println(" parema alampuu tasakaalustus vahe: " + vahe);
+    return vahe;
     }
 
     public static KOTipp vasakPööre(KOTipp juur){
